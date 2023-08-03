@@ -5,6 +5,8 @@ docker run -it --rm --name=ros-as5048b \
 --network=host \
 --env UID=$(id -u) \
 --env GID=$(id -g) \
+--env I2C_DEVICE=1 \
+--env I2C_ADDRESS=0x42 \
 ghcr.io/rosblox/ros-as5048b:humble
 
 
