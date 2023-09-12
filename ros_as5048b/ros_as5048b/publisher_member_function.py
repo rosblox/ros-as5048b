@@ -71,7 +71,7 @@ class RosAs5048bPublisher(Node):
         self.as5048b = AS5048B(i2c_device, i2c_address)
 
         self.encoder_publisher = self.create_publisher(Float32, f"/encoder/at_{hex(self.as5048b.i2c_address)}/deg", 10)
-        timer_period = 0.05  # seconds
+        timer_period = 0.1  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
 
     def timer_callback(self):
