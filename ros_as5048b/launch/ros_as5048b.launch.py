@@ -1,5 +1,5 @@
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
+from launch.actions import DeclareLaunchArgument, Shutdown
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
@@ -21,7 +21,8 @@ def generate_launch_description():
             parameters=[
                 {'i2c_device': LaunchConfiguration('i2c_device')},
                 {'i2c_address': LaunchConfiguration('i2c_address')},
-            ]    
+            ],
+            on_exit=Shutdown()
          )
 
     turn_counter_node = Node(
@@ -31,7 +32,8 @@ def generate_launch_description():
             parameters=[
                 {'file_path': LaunchConfiguration('turn_count_file')},
                 {'encoder_topic': LaunchConfiguration('encoder_topic')},
-            ]    
+            ],
+            on_exit=Shutdown()
          )
 
     nodes = [
