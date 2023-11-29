@@ -19,7 +19,8 @@ setup(
     license='BSD3',
     entry_points={
         'console_scripts': [
-                'ros_as5048b_publisher = ros_as5048b.publisher_member_function:main',
+                'ros_as5048b_publisher = ros_as5048b.read_encoder_node:main',
+                'ros_as5048b_publisher = ros_as5048b.read_encoder_node:main',
         ],
     },
 )
