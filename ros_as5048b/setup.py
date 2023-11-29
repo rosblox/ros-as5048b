@@ -1,3 +1,5 @@
+import os
+from glob import glob
 from setuptools import setup
 
 package_name = 'ros_as5048b'
@@ -10,6 +12,7 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*'))),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -19,8 +22,8 @@ setup(
     license='BSD3',
     entry_points={
         'console_scripts': [
-                'ros_as5048b_publisher = ros_as5048b.read_encoder_node:main',
-                'ros_as5048b_publisher = ros_as5048b.read_encoder_node:main',
+                'read_encoder_node = ros_as5048b.read_encoder_node:main',
+                'turn_counter_node = ros_as5048b.turn_counter_node:main',
         ],
     },
 )
