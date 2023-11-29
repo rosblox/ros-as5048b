@@ -12,6 +12,7 @@ docker run -it --rm \
 --env I2C_DEVICE=1 \
 --env I2C_ADDRESS=0x40 \
 --volume ./ros_as5048b:/colcon_ws/src/ros_as5048b \
+--volume ~/.ros/turn_count.yaml:/tmp/turn_count.yaml \
 -v /dev:/dev  \
 ghcr.io/rosblox/${REPOSITORY_NAME}:humble
 
