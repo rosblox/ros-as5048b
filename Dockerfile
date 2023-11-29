@@ -13,5 +13,5 @@ COPY ros_as5048b src/ros_as5048b
 RUN . /opt/ros/${ROS_DISTRO}/setup.sh && colcon build --symlink-install --event-handlers console_direct+ 
 
 RUN echo 'alias build="colcon build --symlink-install  --event-handlers console_direct+"' >> /etc/bash.bashrc && \
-    echo 'source /colcon_ws/install/setup.bash; ros2 run ros_as5048b ros_as5048b_publisher --ros-args -p i2c_device:=${I2C_DEVICE}  -p i2c_address:=${I2C_ADDRESS}' >> /run.sh && chmod +x /run.sh && \
+    echo 'source /colcon_ws/install/setup.bash; ros2 launch ros_as5048b ros_as5048b.launch.py i2c_device:=${I2C_DEVICE} i2c_address:=${I2C_ADDRESS}' >> /run.sh && chmod +x /run.sh && \
     echo 'alias run="su - ros --whitelist-environment=\"I2C_DEVICE,I2C_ADDRESS\" /run.sh"' >> /etc/bash.bashrc
