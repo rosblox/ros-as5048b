@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY ros_entrypoint.sh .
 
 WORKDIR /colcon_ws
-COPY ros_as5048b src/.
+COPY ros_as5048b src/ros_as5048b
 
 RUN . /opt/ros/${ROS_DISTRO}/setup.sh && colcon build --symlink-install --event-handlers console_direct+ 
 
