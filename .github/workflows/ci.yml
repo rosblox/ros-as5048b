@@ -32,6 +32,4 @@ jobs:
           context: .
           platforms: linux/arm64
           push: true
-          build-args: |
-            ROS_DISTRO=humble
           tags: ghcr.io/rosblox/${{ github.event.repository.name }}:humble
